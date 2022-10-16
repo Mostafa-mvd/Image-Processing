@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 
 f1 = np.array([[0, 2], [2, 3]]) * 1
