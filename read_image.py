@@ -1,5 +1,12 @@
 import cv2 as cv
+import sys
 
-img = cv.imread("Figure_1.png")
-cv.imshow("Figure", img)
+# BGR 8-bit format is the default that is used here.
+img = cv.imread("Photos/coins.png", cv.IMREAD_GRAYSCALE)
+
+if img is None:
+    sys.exit("Could not read the image.")
+
+cv.imshow("coins", img)
+# Zero means to wait forever
 cv.waitKey(0)

@@ -1,3 +1,4 @@
+from cv2 import imshow
 import numpy as np
 import cv2
 import pytesseract
@@ -24,13 +25,16 @@ for cnt in contours:
             largest_rectangle = [cv2.contourArea(cnt), cnt, approx]
 
 x, y, w, h = cv2.boundingRect(largest_rectangle[1])
+
 #crop the rectangle to get the number plate.
+# ROI is again obtained using Numpy indexing. Here I am selecting the ball and copying it to another region in the image:
 roi = img[y:y+h, x:x+w]
+
 gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
 thresh = cv2.adaptiveThreshold(
     gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
 text = pytesseract.image_to_string(roi)
-print(text)
-cv2.drawContours(img,[largest_rectangle[1]],0,(0,0,255),-1)
-plt.imshow(roi, cmap='gray')
-plt.show()
+print("License Plate: ", text)
+cv2.drawContours(img, [largest_rectangle[1]], 0, (0, 0, 255), -1)
+cv2.imshow("roi", roi)
+cv2.waitKey(0)

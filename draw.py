@@ -3,6 +3,7 @@ import numpy as np
 
 # point =! shape
 # point -> (width, height)
+# A scalar value refers to a single value
 
 # Draw Blank Image
 # there are 500 matrices of the shape 500x3 (500 rows and 3 columns) with all array elements is zero
