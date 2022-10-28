@@ -1,3 +1,8 @@
+
+# Image Blurring (Image Smoothing)
+# Image blurring is achieved by convolving the image with a low-pass filter kernel. It is useful for removing noise. It actually removes high frequency content (eg: noise, edges) from the image. So edges are blurred a little bit in this operation (there are also blurring techniques which don't blur the edges). OpenCV provides four main types of blurring techniques.
+
+
 import cv2 as cv
 
 # Smoothing, also called blurring, is a simple and frequently used image processing operation.

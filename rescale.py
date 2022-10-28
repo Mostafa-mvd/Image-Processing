@@ -1,5 +1,7 @@
 import cv2 as cv
-from time import sleep
+
+
+# Scaling is just resizing of the image
 
 
 def changeResolution(cap, width, height):

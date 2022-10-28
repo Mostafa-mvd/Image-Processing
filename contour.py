@@ -3,6 +3,12 @@ import numpy as np
 
 # Edge detection and contours are used to locate points in images where the color or brightness have great changes.
 
+# Edges could therefore correspond to:
+#   Boundaries of an object in an image
+#   Boundaries of shadowing or lighting conditions in an image
+#   Boundaries of “parts” within an object
+
+
 img = cv.imread("Photos/Figure_1.png")
 blank = np.zeros(img.shape, dtype="uint8")
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY, cv.BORDER_DEFAULT)

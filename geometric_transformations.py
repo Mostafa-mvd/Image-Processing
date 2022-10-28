@@ -6,7 +6,12 @@ main_image = cv.imread("Photos/Figure_1.png")
 cv.imshow("Main", main_image)
 
 
-# Translation
+# OpenCV provides two transformation functions, cv.warpAffine and cv.warpPerspective, with which you can perform all kinds of transformations
+
+# Transformations like rotation, translation, Affine, Perspective
+
+# Translation is the shifting of an object's location
+
 def translate(img, x, y):
     """ shifting the location of the image in the (x,y) direction
         -x --> Left
