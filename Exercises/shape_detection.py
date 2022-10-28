@@ -8,11 +8,10 @@ gray_image = cv.cvtColor(shape_image, cv.COLOR_BGR2GRAY)
 # Filtering area you want between 0 (black) and 255 (white)
 ret, threshed = cv.threshold(gray_image, 50, 255, 1)
 
-# Contours are used to locate points in images where the color or brightness have great changes.
 # In this case, contours find information about shapes in our image.
 contours, hierarchies = cv.findContours(threshed, 1, 2)
 
-# We have to go into out contours (Loop in them)
+# We have to go into out contours python list
 for contour in contours:
     # What are the points that are specifying the contours otherwise, what points say to us? what information they have?
     # approxPolyDP is able to identify number of points (coordinates) you need to define your contours or to draw your shape

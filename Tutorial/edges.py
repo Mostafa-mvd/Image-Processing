@@ -8,6 +8,13 @@
 #   Non-maximum Suppression
 #   Hysteresis Thresholding
 
+
+# Edges could therefore correspond to:
+#   Boundaries of an object in an image
+#   Boundaries of shadowing or lighting conditions in an image
+#   Boundaries of “parts” within an object
+
+
 import cv2 as cv
 
 img = cv.imread('Photos/messi.png', 0)

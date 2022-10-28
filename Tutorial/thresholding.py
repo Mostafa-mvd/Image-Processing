@@ -1,5 +1,6 @@
 import cv2 as cv
 
+# Threshold in this place means changes of intensity (between white and black)
 
 # Simple Thresholding / Global Thresholding / Binary Thresholding
 
@@ -7,6 +8,13 @@ import cv2 as cv
 # ‘255’ is the brightest and ‘0’ the darkest. Recall that grayscale intensities range from pure black (0) to pure white (255)
 # So, reading numbers in the thresholded image is much easier than reading numbers in the original image. Not surprisingly, even text-recognition algorithms find it easier to process a thresholded image over the original
 # When the thresholding rule is applied equally to every pixel in the image, and the threshold value is fixed, the operations are called global.
+
+
+# below 125 is zero BGR code (black), above 125 is 255 BGR code (white-maximum value)
+# 125 is BGR code of gray color
+# 255 is maximum BGR code value and It is white
+#ret, thresh = cv.threshold(gray, 125, 255, cv.THRESH_BINARY)
+
 
 img = cv.imread('../Resources/Photos/cats.jpg')
 cv.imshow('Cats', img)

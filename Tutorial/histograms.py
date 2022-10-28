@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 # Histograms basically allow you to visualize the distribution of pixel intensity in any image -> Analyzing
 # Histograms -> Graph, Plot and etc.
+# What is histogram ? You can consider histogram as a graph or plot, which gives you an overall idea about the intensity distribution of an image. It is a plot with pixel values (ranging from 0 to 255, not always) in X-axis and corresponding number of pixels in the image on Y-axis
 
 img = cv.imread('Photos/Figure_1.png')
 cv.imshow('Coins', img)
