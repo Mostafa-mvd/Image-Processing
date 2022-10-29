@@ -16,8 +16,28 @@
 
 
 import cv2 as cv
+import numpy as np
 
-img = cv.imread('Photos/messi.png', 0)
-edges = cv.Canny(img, 100, 200)
+
+def auto_thresholding(image, sigma=0.33):
+	v = np.median(image)
+	
+	# 1
+	lower = int(max(0, (1.0 - sigma) * v))
+	upper = int(min(255, (1.0 + sigma) * v))
+	
+	# 2
+	# lower = 0.66 * v
+	# upper = 1.33 * v
+	
+	return lower, upper
+
+img = cv.imread('Photos/messi.png')
+gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+threshold1, threshold2 = auto_thresholding(gray)
+edges = cv.Canny(img,  threshold1, threshold2)
+
 cv.imshow("Edge", edges)
+
+
 cv.waitKey(0)
