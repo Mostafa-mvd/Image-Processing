@@ -33,7 +33,7 @@ def get_contours(cleared_img):
     return sorted_contours
 
 
-def find_approximate_contours(contours):
+def approximate_contours(contours):
     for contour in contours:
         peri = cv.arcLength(contour, True)
         approx = cv.approxPolyDP(contour, 0.02 * peri, True)
@@ -44,7 +44,7 @@ def find_approximate_contours(contours):
     return None
 
 
-def roi(approx_cnt, resized_img):
+def roi(approx_cnt, img):
     x, y, w, h = cv.boundingRect(approx_cnt)
 
-    return resized_img[y:y+h, x:x+w]
+    return img[y:y+h, x:x+w]
