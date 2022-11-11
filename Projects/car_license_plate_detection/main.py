@@ -21,19 +21,19 @@ if __name__ == "__main__":
     from config import Config
     from errors import ContoursNotFoundError
 
-    from license_plate_detection import (clear_image, read_image, get_contours,
+    from license_plate_detection import (filter_image, read_image, get_contours,
                                          approximate_contours, roi, show_image)
 
     conf = Config()
 
-    BASE_DIR_PATH = conf.BASE_DIR_PATH
+    SRC_DIR_PATH = conf.SRC_DIR_PATH
     IMG_FILE_PATH = conf.SRC_FILE_PATH
     PLATE_LICENSES_ITEMS = conf.SRC_ABSOLUTE_PATH_LIST
 
     if IMG_FILE_PATH in PLATE_LICENSES_ITEMS:
         img = read_image(IMG_FILE_PATH)
-        cleared_image = clear_image(img)
-        sorted_contours = get_contours(cleared_image)
+        filtered_image = filter_image(img)
+        sorted_contours = get_contours(filtered_image)
         approx_cnt = approximate_contours(sorted_contours)
 
         if approx_cnt is None:
@@ -42,4 +42,4 @@ if __name__ == "__main__":
         roi_img = roi(approx_cnt, img)
         show_image(roi_img)
     else:
-        raise FileNotFoundError(f"File not found at {BASE_DIR_PATH}")
+        raise FileNotFoundError(f"File not found at {SRC_DIR_PATH}")

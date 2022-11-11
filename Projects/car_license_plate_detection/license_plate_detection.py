@@ -11,7 +11,7 @@ def show_image(img, delay_ms=0):
     cv.destroyAllWindows()
 
 
-def clear_image(img):
+def filter_image(img):
     # Binarize Image (Change Color Space)
     gray_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     # Blurring (Smoothing)
@@ -22,9 +22,9 @@ def clear_image(img):
     return edged
 
 
-def get_contours(cleared_img):
+def get_contours(filtered_image):
     contours, _ = cv.findContours(
-        cleared_img.copy(), 
+        filtered_image.copy(), 
         cv.RETR_LIST, 
         cv.CHAIN_APPROX_SIMPLE)
 
