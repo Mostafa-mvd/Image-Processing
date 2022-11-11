@@ -49,13 +49,14 @@ cx = int(M['m10']/M['m00'])
 cy = int(M['m01']/M['m00'])
 
 
-# 2) Contour Area = مساحت
+# 2) Contour Area = مساحت کانتور
+# surface area = مساحت سطح
 # Contour area is given by the below function:
 area = cv.contourArea(cnt)
 #‌ area = M['m00']
 
 
-#‌ 3) Contour Perimeter = محیط
+#‌ 3) Contour Perimeter = محیط کانتور
 # It is also called arc length. It can be found out using cv.arcLength() function. Second argument specify whether shape is a closed contour (if passed True), or just a curve.
 perimeter = cv.arcLength(cnt, True)
 

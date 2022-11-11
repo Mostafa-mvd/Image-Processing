@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     BASE_DIR_PATH = conf.BASE_DIR_PATH
     IMG_FILE_PATH = conf.SRC_FILE_PATH
-    PLATE_LICENSES_ITEMS = conf.SRC_LIST_DIR
+    PLATE_LICENSES_ITEMS = conf.SRC_ABSOLUTE_PATH_LIST
 
     if IMG_FILE_PATH in PLATE_LICENSES_ITEMS:
         img = read_image(IMG_FILE_PATH)

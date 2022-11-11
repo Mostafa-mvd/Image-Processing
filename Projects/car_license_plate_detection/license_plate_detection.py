@@ -12,8 +12,11 @@ def show_image(img, delay_ms=0):
 
 
 def clear_image(img):
-    resized_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-    bilateral = cv.bilateralFilter(resized_gray, 13, 75, 75)
+    # Binarize Image (Change Color Space)
+    gray_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    # Blurring (Smoothing)
+    bilateral = cv.bilateralFilter(gray_img, 13, 75, 75)
+    # Edge Detection
     edged = cv.Canny(bilateral, 30, 200)
 
     return edged
@@ -35,8 +38,9 @@ def get_contours(cleared_img):
 
 def approximate_contours(contours):
     for contour in contours:
-        peri = cv.arcLength(contour, True)
-        approx = cv.approxPolyDP(contour, 0.02 * peri, True)
+        perimeter = cv.arcLength(contour, True)
+        epsilon = 0.02 * perimeter
+        approx = cv.approxPolyDP(contour, epsilon, True)
 
         if len(approx) == 4:
             return approx
